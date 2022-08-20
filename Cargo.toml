@@ -3,4 +3,5 @@
 members = [
         "buffer-seeker",
         "buffer-spliter",
+        "simple-file-concat",
 ]
