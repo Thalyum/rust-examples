@@ -3,6 +3,10 @@
 version = 3
 
 [[package]]
+name = "buffer-refresh"
+version = "0.1.0"
+
+[[package]]
 name = "buffer-seeker"
 version = "0.1.0"
 

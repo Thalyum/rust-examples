@@ -3,4 +3,5 @@
 members = [
         "buffer-seeker",
         "buffer-spliter",
+        "buffer-refresh",
 ]
