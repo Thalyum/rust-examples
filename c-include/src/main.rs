@@ -1,24 +1,14 @@
-use cty;
+#![allow(non_upper_case_globals)]
+#![allow(non_camel_case_types)]
+#![allow(non_snake_case)]
 
-/* File: cool_bindings.rs */
-#[repr(C)]
-pub struct CoolStruct {
-    pub x: cty::c_int,
-    pub y: cty::c_int,
-}
-
-extern "C" {
-    pub fn cool_function(
-        i: cty::c_int,
-        c: cty::c_char,
-        cs: *mut CoolStruct
-    );
-}
+include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 
 fn main() {
-    let mut c_struct = CoolStruct {
-        x: 45,
-        y: 27,
+    let mut c_struct = CoolStruct { x: 45, y: 27 };
+    let a = unsafe {
+        cool_function(6, 'g' as i8, &mut c_struct);
+        sum(8, 10)
     };
-    unsafe { cool_function(6, 'g' as i8, &mut c_struct) };
+    println!("sum = {a}");
 }
